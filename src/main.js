@@ -1,6 +1,7 @@
 import './App.css';
 import './assets/bootstrap/css/bootstrap.min.css';
 import model from './assets/model.gif';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -22,8 +23,9 @@ function Home() {
         </ul>
         <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <button className="btn-get-started" role="button">Sign In</button>
+      <Link to='/login'>
+        <button className="btn-get-started" role="button">Sign In</button>
+      </Link>
 
     </div>
   </header>
@@ -36,10 +38,12 @@ function Home() {
       <div className="container">
         <div className="row gy-4 justify-content-center justify-content-lg-between">
           <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Enjoy Your Healthy<br/>Delicious Food</h1>
-            <p data-aos="fade-up" data-aos-delay="100">We are team of talented designers making websites with Bootstrap</p>
+            <h1 data-aos="fade-up">Conversational Brilliance at Your Fingertips !</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Meet your AI chatbot, designed to enhance interactions, solve problems, and provide instant support, all while streamlining tasks and boosting productivity.</p>
             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <a href="get-started" className="btn-get-started" style={{ textDecoration: 'none' }}>Get Started</a>
+              <Link to='/chatbot'>
+              <button className="btn-get-started" role="button">Get Started</button>
+              </Link>
             </div>
           </div>
           <div className="col-lg-5 order-1 order-lg-2 hero-img test-animate" data-aos="zoom-out">

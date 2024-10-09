@@ -14,7 +14,6 @@ function App() {
           <Route path="/Chatbot" element={<Chat />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
-
         </Routes>
       </div>
     </Router>

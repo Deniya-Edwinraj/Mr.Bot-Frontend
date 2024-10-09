@@ -165,7 +165,7 @@ a{
 
   .navmenu a,
   .navmenu a:focus {
-    font-size: 15px;
+    font-size: 16px;
     padding: 0 2px;
     font-weight: 500;
     display: flex;
@@ -213,7 +213,6 @@ a{
 /* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
@@ -234,7 +233,6 @@ a{
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     overflow-y: auto;
@@ -244,9 +242,7 @@ a{
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color);
     padding: 10px 20px;
-    /* font-family: var(--nav-font); */
     font-size: 17px;
     font-weight: 500;
     display: flex;
@@ -268,26 +264,6 @@ a{
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
   }
 
   .navmenu .dropdown ul {
@@ -296,7 +272,6 @@ a{
     z-index: 99;
     padding: 10px 0;
     margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
     transition: all 0.5s ease-in-out;
   }
 
@@ -403,7 +378,7 @@ a{
 .hero p {
   color: color-mix(in srgb, transparent 30%);
   margin: 5px 0 30px 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 
