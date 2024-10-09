@@ -136,7 +136,7 @@ body{
 .login-box{
     position: relative;
     width: 400px;
-    height: 450px;
+    height: 500px;
     background-color: rgb(3, 0, 31);
     border-radius: 20px;
     display: flex;

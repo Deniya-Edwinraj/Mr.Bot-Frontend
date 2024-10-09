@@ -18,7 +18,7 @@ function Home() {
       <nav id="navmenu" className="navmenu" >
         <ul>
           <li><a href="#hero" className="active" style={{ textDecoration: 'none' }}>Home<br/></a></li>
-          <li><a href="#about" style={{ textDecoration: 'none' }}>About</a></li>
+          <li><Link to='/about' style={{ textDecoration: 'none'}}><a href="#about" style={{ textDecoration: 'none' }}>About</a></Link></li>
           <li><a href="#menu" style={{ textDecoration: 'none' }}>Explore</a></li>
         </ul>
         <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -34,7 +34,6 @@ function Home() {
 
     {/* <!-- Hero Section --> */}
     <section id="hero" className="hero section light-background">
-
       <div className="container">
         <div className="row gy-4 justify-content-center justify-content-lg-between">
           <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
@@ -47,12 +46,10 @@ function Home() {
             </div>
           </div>
           <div className="col-lg-5 order-1 order-lg-2 hero-img test-animate" data-aos="zoom-out">
-  <img src={model} className="img-fluid animated" alt=""/>
-</div>
-
+           <img src={model} className="img-fluid animated" alt=""/>
+          </div>
         </div>
       </div>
-
     </section>
     {/* </main> */}
 

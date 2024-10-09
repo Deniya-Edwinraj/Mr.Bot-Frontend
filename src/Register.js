@@ -37,7 +37,7 @@ function RegisterForm() {
             </div>
             <div className="input-box">
               <span className="icon">
-              <i className="bi bi-person-fill"></i>              
+              <i class="bi bi-envelope-at-fill"></i>
               </span>
               <input
                 type="email"
