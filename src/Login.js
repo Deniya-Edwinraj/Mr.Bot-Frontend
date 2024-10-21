@@ -1,8 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 
 function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null); 
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null); 
+
+    try {
+      const response = await fetch('http://localhost:5000/users/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Redirect to the home/dashboard after login
+        navigate('/dashboard'); 
+      } else {
+        setError(data.message || 'Invalid email or password');
+      }
+    } catch (err) {
+      setError('Something went wrong, please try again.');
+    }
+  };
+
   return (
     <section className="login">
       <div className="color"></div>
@@ -20,28 +51,32 @@ function LoginForm() {
         <div className="square" style={{'--i': 8}}></div>
         <div className="square" style={{'--i': 9}}></div>
 
-<div className="login-box">
-          <form  id="loginForm">
+        <div className="login-box">
+          <form onSubmit={handleSubmit} id="loginForm">
             <h2>Login</h2>
+
             <div className="input-box">
               <span className="icon">
-              <i className="bi bi-person-fill"></i>              
+                <i className="bi bi-person-fill"></i>
               </span>
               <input
                 type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 required
-                // value={email}
-                // onChange={(event) => setEmail(event.target.value)}
               />
               <label>Email</label>
             </div>
+
             <div className="input-box">
-              <span className="icon"><i className="bi bi-key-fill"></i></span>
+              <span className="icon">
+                <i className="bi bi-key-fill"></i>
+              </span>
               <input
                 type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 required
-                // value={password}
-                // onChange={(event) => setPassword(event.target.value)}
               />
               <label>Password</label>
             </div>
@@ -51,19 +86,16 @@ function LoginForm() {
             </button>
 
             {/* Display error message if there's a login error */}
-            {/* {loginError && <div className="error-message">{loginError}</div>} */}
+            {error && <div className="error-message">{error}</div>}
 
             <div className="register-link">
               <p>
                 Don't have an account? 
-                <Link to='/register'>
-                <a href="123" id="toggleRegister">Register</a>
-                </Link>
+                <Link to="/register">Register</Link>
               </p>
             </div>
           </form>
         </div>
-
       </div>
     </section>
   );

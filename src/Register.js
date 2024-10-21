@@ -1,8 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 
 function RegisterForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); 
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true); 
+    setError(null); 
+    setSuccess(null); 
+    
+    try {
+      const response = await fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess(data.message);
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
+      } else {
+        setError(data.message || 'Registration failed');
+      }
+    } catch (err) {
+      setError('Something went wrong, please try again.');
+    } finally {
+      setIsLoading(false); 
+    }
+  };
+
   return (
     <section className="login">
       <div className="color"></div>
@@ -20,30 +60,30 @@ function RegisterForm() {
         <div className="square" style={{'--i': 8}}></div>
         <div className="square" style={{'--i': 9}}></div>
 
-<div className="login-box">
-          <form  id="loginForm">
+        <div className="login-box">
+          <form onSubmit={handleSubmit} id="loginForm">
             <h2>Register</h2>
+
+            {error && <p className="error">{error}</p>}
+            {success && <p className="success">{success}</p>}
+
             <div className="input-box">
-              <span className="icon">
-              <i className="bi bi-person-fill"></i>              
-              </span>
+              <span className="icon"><i className="bi bi-person-fill"></i></span>
               <input
-                type="email"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
-                // value={email}
-                // onChange={(event) => setEmail(event.target.value)}
               />
               <label>Name</label>
             </div>
             <div className="input-box">
-              <span className="icon">
-              <i class="bi bi-envelope-at-fill"></i>
-              </span>
+              <span className="icon"><i className="bi bi-envelope-at-fill"></i></span>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
-                // value={email}
-                // onChange={(event) => setEmail(event.target.value)}
               />
               <label>Email</label>
             </div>
@@ -51,32 +91,24 @@ function RegisterForm() {
               <span className="icon"><i className="bi bi-key-fill"></i></span>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
-                // value={password}
-                // onChange={(event) => setPassword(event.target.value)}
               />
               <label>Password</label>
             </div>
 
-            <button className="btnlogin" type="submit">
-              Register
+            <button className="btnlogin" type="submit" disabled={isLoading}>
+              {isLoading ? 'Registering...' : 'Register'}
             </button>
 
-            {/* Display error message if there's a login error */}
-            {/* {loginError && <div className="error-message">{loginError}</div>} */}
-
             <div className="register-link">
-              <p>
-                Don't have an account?  
-                <Link to="/login">
-                  <a href="login" id="toggleLogin">
-                     Login
-                  </a>
-               </Link>              </p>
+              <p>Already have an account?  
+                <Link to="/login"> Login</Link>
+              </p>
             </div>
           </form>
         </div>
-
       </div>
     </section>
   );
