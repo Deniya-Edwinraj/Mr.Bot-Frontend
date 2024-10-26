@@ -1,8 +1,6 @@
 *{
-  /* background-color: rgb(3, 0, 31); */
   color: #fff;
-  font-family: "Playwrite DE Grund" ;
-  /* text-decoration: none; */
+  font-family: "Lexend" ;
 }
 
 body {
@@ -32,15 +30,10 @@ a{
   font-weight: bold;
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
     #00ffd5,
     #002bff,
     #7a00ff,
-    #ff00c8,
-    #ff0000
+    #ff00c8
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -58,8 +51,6 @@ a{
   }
 }
 
-
-/* CSS */
 .btn-get-started {
   padding: 0.8em 2em;
   margin-bottom: 1.5rem;
@@ -81,15 +72,10 @@ a{
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
     #00ffd5,
     #002bff,
     #7a00ff,
-    #ff00c8,
-    #ff0000
+    #ff00c8
   );
   position: absolute;
   top: -2px;
@@ -133,9 +119,6 @@ a{
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
 /* Desktop Navigation */
 @media (min-width: 1200px) {
   .navmenu {
@@ -174,6 +157,7 @@ a{
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
+    color: #fff;
   }
 
   .navmenu a i,
@@ -202,11 +186,6 @@ a{
     width: 100%;
   }
 
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: color-mix(in srgb, var(--nav-color) 80%, black 50%);
-  }
 }
   
 
@@ -339,15 +318,10 @@ a{
   font-weight: bold;
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
     #00ffd5,
     #002bff,
     #7a00ff,
-    #ff00c8,
-    #ff0000
+    #ff00c8
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

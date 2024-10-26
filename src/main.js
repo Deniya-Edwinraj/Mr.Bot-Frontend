@@ -37,7 +37,7 @@ function Home() {
       <div className="container">
         <div className="row gy-4 justify-content-center justify-content-lg-between">
           <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Conversational Brilliance at Your Fingertips !</h1>
+            <h1 data-aos="fade-up">Conversational Brilliance at Your Fingertips!</h1>
             <p data-aos="fade-up" data-aos-delay="100">Meet your AI chatbot, designed to enhance interactions, solve problems, and provide instant support, all while streamlining tasks and boosting productivity.</p>
             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
               <Link to='/chatbot'>
