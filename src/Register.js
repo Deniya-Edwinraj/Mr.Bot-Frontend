@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 
 function RegisterForm() {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -18,12 +18,12 @@ function RegisterForm() {
     setSuccess(null); 
     
     try {
-      const response = await fetch('http://localhost:5000/users', {
+      const response = await fetch('http://localhost:5000/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ username, email, password }),
       });
 
       const data = await response.json();
@@ -71,7 +71,7 @@ function RegisterForm() {
               <span className="icon"><i className="bi bi-person-fill"></i></span>
               <input
                 type="text"
-                value={name}
+                value={username}
                 onChange={(e) => setName(e.target.value)}
                 required
               />

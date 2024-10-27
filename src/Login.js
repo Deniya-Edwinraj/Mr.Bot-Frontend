@@ -13,7 +13,7 @@ function LoginForm() {
     setError(null); 
 
     try {
-      const response = await fetch('http://localhost:5000/users/auth', {
+      const response = await fetch('http://localhost:5000/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,8 +24,7 @@ function LoginForm() {
       const data = await response.json();
 
       if (response.ok) {
-        // Redirect to the home/dashboard after login
-        navigate('/dashboard'); 
+        navigate('/chatbot'); 
       } else {
         setError(data.message || 'Invalid email or password');
       }
@@ -85,7 +84,6 @@ function LoginForm() {
               Login
             </button>
 
-            {/* Display error message if there's a login error */}
             {error && <div className="error-message">{error}</div>}
 
             <div className="register-link">
